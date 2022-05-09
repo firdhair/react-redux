@@ -7,12 +7,9 @@ const button2 = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-  count: state.count
-})
 
 const mapDispatchToProps = (dispatch, state) => ({
   decrementCount: () => {dispatch(decrementAction)}
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(button2);
+export default connect(null, mapDispatchToProps)(button2);
