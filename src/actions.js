@@ -6,7 +6,15 @@ const decrementAction = {
     type: 'decrement-count', // COUNT/DECREMENT
 }
 
+const setCounterAction = (num) => (
+    console.log("num", num),
+    {
+    type: 'set-count',
+    payload: num
+})
+
 export{
     incrementAction,
-    decrementAction
+    decrementAction, 
+    setCounterAction
 }
