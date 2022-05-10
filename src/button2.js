@@ -4,7 +4,7 @@ import {decrementAction, setCounterAction} from "./actions"
 
 const Button2 = (props) => {
   const [input, setInput] = useState('')
-  const counter = useSelector((state)=>state.count)
+  //const counter = useSelector((state)=>state.count)
   const dispatch = useDispatch()
 
   const handleSubmit = (e) => {

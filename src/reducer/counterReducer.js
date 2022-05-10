@@ -20,6 +20,7 @@ export default function counterReducer(state = initialState, action) {
             console.log("ini set count")
             return{
                 ...state,
+                count: action.payload
             }
         default: 
             return state;
