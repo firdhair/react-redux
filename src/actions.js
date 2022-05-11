@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const incrementAction = {
     type: 'increment-count', // COUNT/INCREMENT
 }
@@ -30,10 +32,49 @@ const deleteTodo = (id) => (
     }
 )
 
+const fetchPostAction = (payload) => (
+    console.log("data fetch: "),
+    {
+        type: 'fetch-data',
+        payload
+    }
+)
+
+const fetchPostStart = {
+    type: 'fetch-start'
+}
+
+const fetchPostSuccess = (payload) => ({
+    type: 'fetch-success',
+    payload
+})
+
+const fetchPostFailed = (payload) => ({
+    type: 'fetch-failed',
+    payload
+})
+
+const fetchPostAsync = () => {
+    return function(dispatch, getState){
+        dispatch(fetchPostStart)
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then((response) => {
+                dispatch(fetchPostSuccess(response.data))
+            })
+            .catch((error) => {
+                dispatch(fetchPostFailed(error))
+            })
+    }
+}
+
 export{
     incrementAction,
     decrementAction, 
+    fetchPostStart,
     setCounterAction,
     addNewTodo,
-    deleteTodo
+    deleteTodo,
+    fetchPostFailed,
+    fetchPostSuccess,
+    fetchPostAsync
 }

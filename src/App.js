@@ -4,7 +4,7 @@ import React from "react"
 import {incrementAction, decrementAction} from "./actions"
 import Button2 from "./button2"
 import Todo from "./todoList"
-
+import Post from "./Post"
 
 function App(props) {
   const counter = useSelector((state) => state.counter.count)
@@ -20,7 +20,8 @@ function App(props) {
           <button onClick={()=> {dispatch(incrementAction)}}>increment</button>
         <Button2/>
        <p>ini app</p>
-        <Todo/>
+        {/* <Todo/> */}
+        <Post/>
     </div>
   );
 }
