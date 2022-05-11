@@ -14,7 +14,7 @@ export default function todoReducer(state = initialState, action) {
 
         case 'delete-todo': 
             const todos = state
-            const updatedTodos = todos.filter((todos) => todos['id'] !== action.id && todos['id'] !== "")
+            const updatedTodos = todos.filter((todos) => todos['id'] !== action.id)
             return (updatedTodos)
             
         default: 
