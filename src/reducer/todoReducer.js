@@ -1,21 +1,29 @@
-const initialState = []
+const initialState = {
+    list: [
+        {
+            uid: '90',
+            value: 'makan',
+        }
+    ]
+}
 
 export default function todoReducer(state = initialState, action) {
-   console.log("todo reducer", action)
-   console.log("ini state", state)
-   console.log("state length", state.length)
-   switch(action.type){
+    const {type, payload} = action
+    switch(type){
        case 'new-todo':
-           const tes1 = {
-               todo: action.payload,
-               id: action.id
-           }
-            return ([...state, tes1])
+            return {
+                ...state,
+                list: [...state.list, payload]
+            }
 
         case 'delete-todo': 
-            const todos = state
-            const updatedTodos = todos.filter((todos) => todos['id'] !== action.id)
-            return (updatedTodos)
+            console.log("ini payload delete ", payload)
+            const todos = [...state.list]
+            const updatedTodos = todos.filter((todos) => todos.uid !== payload)
+           return {
+               ...state, 
+               list: updatedTodos
+           }
             
         default: 
             return state;

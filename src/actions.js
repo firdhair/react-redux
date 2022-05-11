@@ -26,7 +26,7 @@ const deleteTodo = (id) => (
     console.log("id: ", id),
     {
         type: 'delete-todo',
-        id: id
+        payload: id
     }
 )
 
