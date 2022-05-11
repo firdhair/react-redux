@@ -4,6 +4,7 @@ const initialState = {
 
 export default function counterReducer(state = initialState, action) {
     console.log("action type", action.type);
+    console.log("counter state", state);
     switch(action.type) {
         case 'increment-count' :
             console.log("ini increment", ", count:", state.count)

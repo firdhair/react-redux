@@ -13,11 +13,20 @@ const setCounterAction = (num) => (
         payload: num
 })
 
-const addNewTodo = (todo) => (
-    console.log("todo"),
+const addNewTodo = (todo, id) => (
+    console.log("addNewTodo: ", todo, ", addNewTodo id: ", id),
     {
         type: 'new-todo',
-        payload: todo
+        payload: todo,
+        id: id
+    }
+)
+
+const deleteTodo = (id) => (
+    console.log("id: ", id),
+    {
+        type: 'delete-todo',
+        id: id
     }
 )
 
@@ -25,5 +34,6 @@ export{
     incrementAction,
     decrementAction, 
     setCounterAction,
-    addNewTodo
+    addNewTodo,
+    deleteTodo
 }
